@@ -1,0 +1,35 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
+.hero-overlay {
+  --tw-bg-opacity: 0;
+}
+
+.anchor{
+  display: block;
+  height: 115px; /*same height as header*/
+  margin-top: -115px; /*same height as header*/
+  visibility: hidden;
+}
+
+.mockup-phone{
+  padding: 6px !important;
+
+}
+.chat-bubble{
+  max-width: 100% !important;
+  background-color: white !important;
+  color: darkslategray !important;
+}
+
+.artboard-demo{
+  background: url('https://picsum.photos/320/568');
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: start !important;
+  padding-bottom: 50px !important;
+  justify-content: end !important;
+}

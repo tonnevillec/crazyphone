@@ -1,0 +1,268 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="h-[48rem]">
+        <div class="hero min-h-full" style="background-image: url('./build/images/20230720_142052.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content text-center text-neutral-content mt-96">
+                <div class="w-full">
+                    <h1 class="mb-5 text-5xl font-bold drop-shadow-xl">Atelier de réparation de smarphones</h1>
+
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white">
+                        <i class="fa-brands fa-instagram fa-2x text-white"></i>
+                    </a>
+
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white">
+                        <i class="fa-brands fa-facebook fa-2x text-white"></i>
+                    </a>
+
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white">
+                        <i class="fa-brands fa-twitter fa-2x text-white"></i>
+                    </a>
+
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white">
+                        <i class="fa-regular fa-envelope fa-2x text-white"></i>
+                    </a>
+
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white">
+                        <i class="fa-solid fa-mobile-screen fa-2x text-white"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-neutral-900 text-neutral-content py-10">
+    <h1 class="text-5xl w-full text-center mb-10">Nos  services</h1>
+
+    <div class="grid lg:grid-cols-3 gap-6">
+        <div class="w-full pl-5 lg:col-span-2 lg:pl-10">
+            <div class="flex">
+                <div class="hidden lg:block xl:w-1/5"></div>
+                <div class="w-full xl:w-3/5">
+                    <div class="chat w-full chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Réparation de téléphones</div>
+                    </div>
+
+                    <div class="chat w-full chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Déblocage de comptes (iphone et google)</div>
+                    </div>
+
+                    <div class="chat w-full chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Jailbreak iphone</div>
+                    </div>
+
+                    <div class="chat chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Protection<br/>Vitre de protection / Films hydrogel / Coques</div>
+                    </div>
+
+                    <div class="chat chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Assurance</div>
+                    </div>
+
+                    <div class="chat chat-start mb-3">
+                        <div class="chat-image avatar">
+                            <div class="w-10 rounded-full">
+                                <img src="https://picsum.photos/320/240?random=5" />
+                            </div>
+                        </div>
+                        <div class="chat-bubble text-2xl">Vente d'accessoires <a href="#" class="btn btn-primary btn-sm ml-2"><i class="fa-solid fa-cart-shopping mr-1"></i>Voir la boutique</a></div>
+                    </div>
+                </div>
+                <div class="hidden lg:block xl:w-1/5"></div>
+            </div>
+        </div>
+
+        <div class=" flex justify-end">
+            <div class="mockup-phone">
+                <div class="camera"></div>
+                <div class="display">
+                    <div class="artboard artboard-demo phone-1">
+                        <div class="chat w-full chat-start mb-2">
+                            <div class="chat-image avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src="https://picsum.photos/320/240?random=5" />
+                                </div>
+                            </div>
+                            <div class="chat-bubble">Bonjour, Que proposez vous comme service?</div>
+                        </div>
+
+                        <div class="chat w-full chat-end mb-2">
+                            <div class="chat-image avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src="https://picsum.photos/320/240?random=1" />
+                                </div>
+                            </div>
+                            <div class="chat-bubble">Bonjour,<br/>On fait de la réparation express de vos Smartphones</div>
+                        </div>
+
+                        <div class="chat w-full chat-start mb-2">
+                            <div class="chat-image avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src="https://picsum.photos/320/240?random=2" />
+                                </div>
+                            </div>
+                            <div class="chat-bubble">Et c'est tout??</div>
+                        </div>
+
+                        <div class="chat w-full chat-end mb-2">
+                            <div class="chat-image avatar">
+                                <div class="w-10 rounded-full">
+                                    <img src="https://picsum.photos/320/240?random=4" />
+                                </div>
+                            </div>
+                            <div class="chat-bubble">Non!!<br/>Ecran cassé ? Batterie épuisée ? Iphone bloqué ?<br/>Vous pouvez venir nous voir</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="relative w-full h-[400px]">
+        <img src="https://picsum.photos/1280/400?random=8'" class="object-cover h-[400px] w-full" />
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
+        </div>
+    </div>
+
+    <div class="w-full flex justify-center">
+        <a href="#" class="btn btn-primary text-2xl mt-[-20px] z-[10] shadow-xl">
+            <i class="fa-solid fa-cart-shopping mr-2"></i>Parcourir la boutique
+        </a>
+    </div>
+
+{#    <div class="carousel bg-zinc-800 w-full my-10">#}
+{#        <span id="slide1" class="anchor"></span>#}
+{#        <div class="carousel-item relative w-full justify-center mx-20">#}
+{#            <div class="card lg:card-side bg-base-100 shadow-xl">#}
+{#                <img src="https://picsum.photos/640/480?random=1"#}
+{#                     alt="Album"#}
+{#                     class="rounded-tl-box rounded-tr-box lg:rounded-bl-box lg:rounded-tr-none w-96"#}
+{#                     />#}
+{#                <div class="card-body">#}
+{#                    <h2 class="card-title">New album is released!</h2>#}
+{#                    <p>slide1</p>#}
+{#                    <div class="card-actions justify-end">#}
+{#                        <button class="btn btn-primary">Listen</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">#}
+{#                <a href="#slide4" class="btn btn-circle">❮</a>#}
+{#                <a href="#slide2" class="btn btn-circle">❯</a>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <span id="slide2" class="anchor"></span>#}
+{#        <div class="carousel-item relative w-full justify-center">#}
+{#            <div class="card lg:card-side bg-base-100 shadow-xl">#}
+{#                <img src="https://picsum.photos/800/600?random=2"#}
+{#                     class="rounded-tl-box rounded-tr-box lg:rounded-bl-box lg:rounded-tr-none w-96"#}
+{#                     alt="Album"#}
+{#                />#}
+{#                <div class="card-body">#}
+{#                    <h2 class="card-title">New album is released!</h2>#}
+{#                    <p>slide2</p>#}
+{#                    <div class="card-actions justify-end">#}
+{#                        <button class="btn btn-primary">Listen</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">#}
+{#                <a href="#slide1" class="btn btn-circle">❮</a>#}
+{#                <a href="#slide3" class="btn btn-circle">❯</a>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <span id="slide3" class="anchor"></span>#}
+{#        <div class="carousel-item relative w-full justify-center">#}
+{#            <div class="card lg:card-side bg-base-100 shadow-xl">#}
+{#                <img src="https://picsum.photos/640/480?random=3"#}
+{#                     class="rounded-tl-box rounded-tr-box lg:rounded-bl-box lg:rounded-tr-none w-96"#}
+{#                     alt="Album"/>#}
+{#                <div class="card-body">#}
+{#                    <h2 class="card-title">New album is released!</h2>#}
+{#                    <p>slide3</p>#}
+{#                    <div class="card-actions justify-end">#}
+{#                        <button class="btn btn-primary">Listen</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">#}
+{#                <a href="#slide2" class="btn btn-circle">❮</a>#}
+{#                <a href="#slide4" class="btn btn-circle">❯</a>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <span id="slide4" class="anchor"></span>#}
+{#        <div class="carousel-item relative w-full justify-center">#}
+{#            <div class="card lg:card-side bg-base-100 shadow-xl h-96">#}
+{#                <img src="https://picsum.photos/640/480?random=4"#}
+{#                     class="rounded-tl-box rounded-tr-box lg:rounded-bl-box lg:rounded-tr-none w-96"#}
+{#                     alt="Album"/>#}
+{#                <div class="card-body">#}
+{#                    <h2 class="card-title">New album is released!</h2>#}
+{#                    <p>slide4</p>#}
+{#                    <div class="card-actions justify-end">#}
+{#                        <button class="btn btn-primary">Listen</button>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">#}
+{#                <a href="#slide3" class="btn btn-circle">❮</a>#}
+{#                <a href="#slide1" class="btn btn-circle">❯</a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+    <div class="w-full mt-10 py-10 mb-20">
+        <h1 class="text-5xl w-full text-center mb-10">Nos coordonnées</h1>
+
+        <div class="flex flex-col min-[1040px]:flex-row min-[1040px]:gap-6 min-[1040px]:px-10">
+            <div class="flex justify-center flex-auto min-w-[600px]">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.4216010947453!2d1.008987812753751!3d49.28735617030315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e11f28fd79c855%3A0x7223933e48c8b44!2s48%20Cr%20Carnot%2C%2076500%20Elbeuf!5e0!3m2!1sfr!2sfr!4v1689970524603!5m2!1sfr!2sfr"
+                        width="600"
+                        height="450"
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="flex-auto mt-10 min-[1040px]:mt-0 text-center min-[1040px]:text-start">
+                <ul class="list-none">
+                    <li class="mb-6 text-2xl">Téléphone: 0602044137</li>
+                    <li class="mb-6 text-2xl">E-mail: contact@crazy-phone.fr</li>
+                    <li class="mb-6 text-2xl">Adresse :  48 cours carnot, 76500 ELBEUF</li>
+                </ul>
+            </div>
+    </div>
+{% endblock %}
