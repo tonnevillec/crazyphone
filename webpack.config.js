@@ -39,7 +39,7 @@ Encore
 //.enableTypeScriptLoader()
 
 // uncomment if you use React
-//.enableReactPreset()
+    .enableReactPreset()
 ;
 
 module.exports = Encore.getWebpackConfig();

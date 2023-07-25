@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crazy phone - Nous contacter{% endblock %}
+
+{% block body %}
+    <div class="h-[26rem] mt-16">
+        <div class="hero min-h-full" style="background-image: url(https://picsum.photos/1280/800?random=1);">
+          <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold">Contact</h1>
+
+                {% for social in tSocials() %}
+                    <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white"
+                       href="{{ social.url }}"
+                       title="{{ social.name }}"
+                       target="_blank">
+                        <i class="{{ social.logo }} fa-2x text-white"></i>
+                    </a>
+                {% endfor %}
+
+                <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white"
+                   href="mailto:{{ contactInformation('mail') }}"
+                   title="Contact par email"
+                >
+                    <i class="fa-regular fa-envelope fa-2x text-white"></i>
+                </a>
+
+                <a class="btn btn-link bg-transparent me-1 hover:rounded border-transparent hover:border-white"
+                   href="#contact"
+                   title="SMS au {{ contactInformation('tel') }}"
+
+                >
+                    <i class="fa-solid fa-mobile-screen fa-2x text-white"></i>
+                </a>
+
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="mt-5 mb-20 px-5 md:px-10 xl:px-20">
+        <div class="section-heading style-2 mb-7 w-full mt-10">
+            <h1 class="text-xl md:text-3xl mb-2">
+                <i class="fa-solid fa-envelope text-primary mr-3"></i>Besoin d'une information ?
+            </h1>
+            <div class="line"></div>
+        </div>
+
+        <div class="flex flex-col min-[1040px]:flex-row min-[1040px]:px-10">
+            <div class="flex flex-col min-[1040px]:basis-1/2 p-10 bg-primary rounded-tl-3xl">
+                <div class="form-control w-full">
+                    <label class="label text-2xl" for="f_nom">
+                        <span class="label-text">Votre nom</span>
+                    </label>
+                    <input type="text"
+                           id="f_nom"
+                           name="test1"
+                           placeholder="Votre nom"
+                           class="input input-bordered input-md w-full" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label text-2xl" for="f_mail">
+                        <span class="label-text">Votre mail</span>
+                    </label>
+                    <input type="text"
+                           id="text"
+                           name="f_mail"
+                           placeholder="Votre mail"
+                           class="input input-bordered input-md w-full" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label text-2xl" for="f_devis">
+                        <span class="label-text">Numéro de devis</span>
+                    </label>
+                    <input type="text"
+                           id="f_devis"
+                           name="test1"
+                           placeholder="Numéro de devis si vous en avez un"
+                           class="input input-bordered input-md w-full" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label text-2xl" for="f_message">
+                        <span class="label-text">Votre message</span>
+                    </label>
+                    <textarea
+                           id="f_message"
+                           name="f_message"
+                           placeholder="Votre message"
+                           class="textarea textarea-bordered textarea-md w-full">
+                    </textarea>
+                </div>
+
+                <button type="submit" class="btn bg-slate-800 border-slate-700 hover:bg-slate-600 text-white mt-6">Envoyer</button>
+            </div>
+
+            <div class="flex-auto p-10 text-center min-[1040px]:basis-1/2 min-[1040px]:text-start bg-slate-800 text-white rounded-br-3xl" id="contact">
+                <div class="w-full mb-2">
+                    <ul class="list-none">
+                        <li class="mb-6 text-base"><span class="font-bold">Téléphone</span>: {{ contactInformation('tel') }}</li>
+                        <li class="mb-6 text-base"><span class="font-bold">E-mail</span>: <a href="mailto:{{ contactInformation('mail') }}">{{ contactInformation('mail') }}</a></li>
+                        <li class="mb-6 text-base"><span class="font-bold">Adresse</span> :  {{ contactInformation('adresse') }}</li>
+                    </ul>
+                </div>
+
+                <div class="px-24 w-full flex flex-col min-[1040px]:px-0">
+                    <p class="text-2xl underline underline-offset-8 mb-2">Horaires d'ouverture</p>
+                    <table class="table table-sm w-96 max-[1040px]:m-auto">
+                        {% for op in openings %}
+                            <tr class="border-0 hover hover:text-slate-800">
+                                <td>{{ op.day }}</td>
+                                <td>{{ op.morning }}</td>
+                                <td>{{ op.afternoon }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

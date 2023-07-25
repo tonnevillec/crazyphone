@@ -19,11 +19,11 @@
   padding: 6px !important;
 
 }
-.chat-bubble{
-  max-width: 100% !important;
-  background-color: white !important;
-  color: darkslategray !important;
-}
+//.chat-bubble-white{
+//  max-width: 100% !important;
+//  background-color: white !important;
+//  color: darkslategray !important;
+//}
 
 .artboard-demo{
   background: url('https://picsum.photos/320/568');
@@ -32,4 +32,34 @@
   align-items: start !important;
   padding-bottom: 50px !important;
   justify-content: end !important;
+}
+
+.section-heading.style-2 .line {
+  padding-right: 10px;
+  width: 100%;
+}
+
+.section-heading .line {
+  background-color: currentColor;
+  height: 1px;
+  margin: 0 auto;
+  position: relative;
+  width: 150px;
+  z-index: 1;
+}
+
+.section-heading.style-2 .line:after {
+  left: 0;
+  margin-left: 0;
+}
+
+.section-heading .line:after {
+  background-color: green;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 50%;
+  margin-left: -30px;
+  position: absolute;
+  width: 60px;
 }

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crazy phone - Notre boutique{% endblock %}
+
+{% block body %}
+    <div class="mt-24 mb-10 px-5 md:px-10 xl:px-20 min-h-[100vh]">
+        <div class="section-heading style-2 mb-7 w-full mt-10">
+            <h1 class="text-xl md:text-3xl mb-2">
+                <i class="fa-solid fa-shopping-cart text-primary mr-3"></i>Boutique
+            </h1>
+            <div class="line"></div>
+        </div>
+
+        <react-shop></react-shop>
+
+        <div class="flex flex-col md:flex-row gap-6 mt-96">
+            <div class="mb-2 md:basis-1/4">
+                <h2>Filtre</h2>
+
+                <div class="form-control w-full">
+                    <label class="label" for="test1">
+                        <span class="label-text">Recherche</span>
+                    </label>
+                    <input type="text"
+                           id="test1"
+                           name="test1"
+                           placeholder="Recherche par mot-clé"
+                           class="input input-bordered input-sm w-full" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label" for="test2">
+                        <span class="label-text">Catégories</span>
+                    </label>
+                    <select id="test2"
+                           name="test2"
+                           class="select select-bordered select-sm w-full">
+                        <option value=""></option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label" for="test2">
+                        <span class="label-text">Marques</span>
+                    </label>
+                    <select id="test2"
+                            name="test2"
+                            class="select select-bordered select-sm w-full">
+                        <option value=""></option>
+                        {% for brand in brands %}
+                            <option value="{{ brand.id }}">{{ brand.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm mt-2">Filtrer</button>
+            </div>
+
+            <div class="md:basis-3/4">
+                <div class="shop-aff w-full">
+                    <div class="mb-7 w-full">
+                        <div class="text-end mb-2">
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-list"></i>
+                            </button>
+                        </div>
+                        <div class="border-b border-slate-300 w-full"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-6 place-items-stretch">
+                        {% for product in products %}
+                        <div class="card bg-base-100 shadow-md">
+                            <img src="/uploads/{{ product.picture }}"
+                                 class="rounded-tl-box rounded-tr-box"
+                                 alt="{{ product.name }}" />
+                            <div class="card-body p-3">
+                                <h2 class="card-title text-base">
+                                    {{ product.name }}
+                                </h2>
+                                <p>{{ product.description|raw }}</p>
+                                <div class="card-actions justify-end">
+                                    <div class="badge text-xs badge-secondary">{{ product.brand.name }}</div>
+                                    <div class="badge text-xs badge-primary">{{ product.category.title }}</div>
+                                    {% if product.price %}
+                                    <div class="badge text-xs badge-outline">{{ (product.price // 100)|format_currency('EUR') }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
