@@ -2,9 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\About;
 use App\Entity\Brands;
 use App\Entity\Categories;
 use App\Entity\ContactInformations;
+use App\Entity\Galerie;
 use App\Entity\Openings;
 use App\Entity\Products;
 use App\Entity\Promotions;
@@ -42,6 +44,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Services', 'fas fa-list', Services::class),
             MenuItem::linkToCrud('Contacts', 'fas fa-list', ContactInformations::class),
             MenuItem::linkToCrud('Réseaux', 'fas fa-list', SocialNetworks::class),
+            MenuItem::linkToCrud('A propos', 'fas fa-list', About::class),
+            MenuItem::linkToCrud('Galerie', 'fas fa-list', Galerie::class),
         ]);
 
         yield MenuItem::section('');

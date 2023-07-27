@@ -23,11 +23,8 @@ class Promotions
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $startedAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $endedAt = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $coupon = null;
 
     public function __toString(): string
     {
@@ -75,26 +72,14 @@ class Promotions
         return $this;
     }
 
-    public function getStartedAt(): ?\DateTimeInterface
+    public function getCoupon(): ?string
     {
-        return $this->startedAt;
+        return $this->coupon;
     }
 
-    public function setStartedAt(\DateTimeInterface $startedAt): static
+    public function setCoupon(?string $coupon): static
     {
-        $this->startedAt = $startedAt;
-
-        return $this;
-    }
-
-    public function getEndedAt(): ?\DateTimeInterface
-    {
-        return $this->endedAt;
-    }
-
-    public function setEndedAt(?\DateTimeInterface $endedAt): static
-    {
-        $this->endedAt = $endedAt;
+        $this->coupon = $coupon;
 
         return $this;
     }
