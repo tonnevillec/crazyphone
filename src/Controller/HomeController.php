@@ -39,15 +39,7 @@ class HomeController extends AbstractController
     #[Route('/shop', name: 'app_shop')]
     public function shop(): Response
     {
-        $products = $this->em->getRepository(Products::class)->findAll();
-        $brands = $this->em->getRepository(Brands::class)->findBy([], ['name' => 'ASC']);
-        $categories = $this->em->getRepository(Categories::class)->findBy([], ['title' => 'ASC']);
-
-        return $this->render('app/shop.html.twig', [
-            'products' => $products,
-            'brands' => $brands,
-            'categories' => $categories,
-        ]);
+        return $this->render('app/shop.html.twig');
     }
 
     #[Route('/contact', name: 'app_contact')]

@@ -12,18 +12,24 @@ class Categories
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'categories.read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'categories.read'])]
     private ?string $title = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'categories.read'])]
     private ?string $icon = null;
 
     public function __toString(): string
+    {
+        return $this->title;
+    }
+
+    #[Groups(groups: ['products.read', 'categories.read'])]
+    public function getValue(): string
     {
         return $this->title;
     }

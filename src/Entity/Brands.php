@@ -14,15 +14,15 @@ class Brands
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'brands.read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'brands.read'])]
     private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(groups: ['products.read'])]
+    #[Groups(groups: ['products.read', 'brands.read'])]
     private ?string $logo = null;
 
     #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Products::class)]
@@ -34,6 +34,12 @@ class Brands
     }
 
     public function __toString(): string
+    {
+        return $this->name;
+    }
+
+    #[Groups(groups: ['products.read', 'brands.read'])]
+    public function getValue(): string
     {
         return $this->name;
     }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
-    return <div className="card bg-base-100 shadow-md">
+const ProductCard = ({product, affCard}) => {
+    return <div className={affCard ? "card bg-base-100 shadow-md" : "card bg-base-100 shadow-md card-side w-full"}>
         <img src={"/uploads/" + product.picture}
-             className="rounded-tl-box rounded-tr-box"
+             className={affCard ? "rounded-tl-box rounded-tr-box" : "rounded-tl-box rounded-bl-box max-w-[20%]"}
              alt="{{ product.name }}"/>
         <div className="card-body p-3">
             <h2 className="card-title text-base">
