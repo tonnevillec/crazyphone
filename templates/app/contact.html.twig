@@ -47,54 +47,82 @@
             <div class="line"></div>
         </div>
 
+        {% for label, messages in app.flashes %}
+            <div class="px-10 mb-5">
+                {% for message in messages %}
+                    {% if label is same as ('error') %}
+                        <div class="alert alert-error">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{{ message }}</span>
+                        </div>
+                    {% endif %}
+                    {% if label is same as ('success') %}
+                        <div class="alert alert-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span>{{ message }}</span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+
         <div class="flex flex-col min-[1040px]:flex-row min-[1040px]:px-10">
             <div class="flex flex-col min-[1040px]:basis-1/2 p-10 bg-primary rounded-tl-3xl">
-                <div class="form-control w-full">
-                    <label class="label text-2xl" for="f_nom">
-                        <span class="label-text">Votre nom</span>
-                    </label>
-                    <input type="text"
-                           id="f_nom"
-                           name="test1"
-                           placeholder="Votre nom"
-                           class="input input-bordered input-md w-full" />
-                </div>
+                <form action="{{ path('app_contact_send') }}" method="post">
+                    <div class="form-control w-full">
+                        <label class="label text-2xl" for="f_nom">
+                            <span class="label-text">Votre nom</span>
+                        </label>
+                        <input type="text"
+                               id="f_nom"
+                               name="contact_nom"
+                               placeholder="Votre nom"
+                               value="{{ contact_nom is defined ? contact_nom : '' }}"
+                               required
+                               class="input input-bordered input-md w-full" />
+                    </div>
 
-                <div class="form-control w-full">
-                    <label class="label text-2xl" for="f_mail">
-                        <span class="label-text">Votre mail</span>
-                    </label>
-                    <input type="text"
-                           id="text"
-                           name="f_mail"
-                           placeholder="Votre mail"
-                           class="input input-bordered input-md w-full" />
-                </div>
+                    <div class="form-control w-full">
+                        <label class="label text-2xl" for="f_mail">
+                            <span class="label-text">Votre mail</span>
+                        </label>
+                        <input type="email"
+                               id="f_mail"
+                               name="contact_mail"
+                               placeholder="Votre mail"
+                               value="{{ contact_mail is defined ? contact_mail : '' }}"
+                               required
+                               class="input input-bordered input-md w-full" />
+                    </div>
 
-                <div class="form-control w-full">
-                    <label class="label text-2xl" for="f_devis">
-                        <span class="label-text">Numéro de devis</span>
-                    </label>
-                    <input type="text"
-                           id="f_devis"
-                           name="test1"
-                           placeholder="Numéro de devis si vous en avez un"
-                           class="input input-bordered input-md w-full" />
-                </div>
+                    <div class="form-control w-full">
+                        <label class="label text-2xl" for="f_devis">
+                            <span class="label-text">Numéro de devis</span>
+                        </label>
+                        <input type="text"
+                               id="f_devis"
+                               name="contact_devis"
+                               value="{{ contact_devis is defined ? contact_devis : '' }}"
+                               placeholder="Numéro de devis si vous en avez un"
+                               class="input input-bordered input-md w-full" />
+                    </div>
 
-                <div class="form-control w-full">
-                    <label class="label text-2xl" for="f_message">
-                        <span class="label-text">Votre message</span>
-                    </label>
-                    <textarea
-                           id="f_message"
-                           name="f_message"
-                           placeholder="Votre message"
-                           class="textarea textarea-bordered textarea-md w-full">
-                    </textarea>
-                </div>
+                    <div class="form-control w-full">
+                        <label class="label text-2xl" for="f_message">
+                            <span class="label-text">Votre message</span>
+                        </label>
+                        <textarea
+                               id="f_message"
+                               name="contact_message"
+                               class="textarea textarea-bordered textarea-md w-full">{{ contact_message is defined and contact_message is not same as ('') ? contact_message : '' }}</textarea>
+                    </div>
 
-                <button type="submit" class="btn bg-slate-800 border-slate-700 hover:bg-slate-600 text-white mt-6">Envoyer</button>
+                    <input type="hidden" name="contact_robot">
+
+                    <button type="submit"
+                            class="btn bg-slate-800 border-slate-700 hover:bg-slate-600 text-white mt-6">Envoyer</button>
+                </form>
+
             </div>
 
             <div class="flex-auto p-10 text-center min-[1040px]:basis-1/2 min-[1040px]:text-start bg-slate-800 text-white rounded-br-3xl" id="contact">
