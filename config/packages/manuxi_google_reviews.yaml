@@ -1,0 +1,9 @@
+manuxi_google_reviews:
+    connector:
+        api_key: '%env(GOOGLE_API_KEY)%'
+        cid: '%env(GOOGLE_CID)%'
+        locale: fr
+    cache:
+        enabled: true
+        pool: cache.app
+        ttl: 86400

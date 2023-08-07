@@ -10,6 +10,7 @@ use App\Entity\Promotions;
 use App\Entity\Services;
 use App\Entity\SocialNetworks;
 use Doctrine\ORM\EntityManagerInterface;
+use Manuxi\GoogleReviewsBundle\ManuxiGoogleReviews;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -26,7 +27,8 @@ class HomeController extends AbstractController
     public function __construct(
         private readonly EntityManagerInterface $em,
         private readonly ParameterBagInterface $param,
-        private readonly MailerInterface $mailer
+        private readonly MailerInterface $mailer,
+        private readonly ManuxiGoogleReviews $googleReviews
     ){}
 
     #[Route('/', name: 'app_home')]
@@ -38,12 +40,15 @@ class HomeController extends AbstractController
         $contacts = $this->em->getRepository(ContactInformations::class)->findAll();
         $promotions = $this->em->getRepository(Promotions::class)->findBy([], ['id' => 'desc'], 2);
 
+        $reviews = $this->googleReviews->getReviews(0, 3);
+
         return $this->render('app/index.html.twig', [
             'openings' => $openings,
             'services' => $services,
             'networks' => $networks,
             'contacts' => $contacts,
             'promotions' => $promotions,
+            'reviews' => $reviews,
         ]);
     }
 
